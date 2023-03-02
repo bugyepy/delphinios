@@ -5,7 +5,22 @@
   text-align: center;
 }
 
+@keyframes text-bound {
+  from {
+    transform: translateY(4px);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+.title {
+  pointer-events: none;
+}
+
 .guide {
   font-weight: lighter;
   font-size: 34px;
+  cursor: default;
+  animation: text-bound infinite alternate 0.3s ease-in-out;
 }

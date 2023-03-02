@@ -1,8 +1,7 @@
-import { useState } from 'react'
+import { MouseEvent, useState } from 'react'
 import './App.css'
 
 function App() {
-  
   // ページ固有のTODO
   // TODO: クリックしたら先に進み、ポワワ〜ンとなる波紋上のアニメーションと共に太陽系の初期レンダリングが！！　すごい！！
   // TODO: クリックで画面遷移？ 1ページでやる？ それとも現状の「タイトル+Click here.」表示を関数化して単に切り替えるだけにする？
@@ -12,17 +11,50 @@ function App() {
   // 開発系TODO
   // TODO: CSS系のライブラリの導入, React Emotionとか？
 
+  // TODO: initialViewはStoreで管理して、SessionStorageか何かに保存しておきたい。初回以降は見なくてもいいように
+  const [isInitialView, setIsInitialView] = useState(false);
+
+  // TODO: クリックした位置に小さめの波紋を出してポワワ〜ンとさせながら、appViewを表示する関数
+  // TODO: Transition系のなんかが欲しい
+  // TODO: 関数名は要検討
+  // FIXME: App要素（このコンポーネントの一番上のDivくん）の高さが最低限しかないので端っこの方のClickイベントが取れない！
+  const setAppView = (event: React.MouseEvent<HTMLDivElement>) => {
+    console.log(`X: ${event.clientX}, Y: ${event.clientY}`)
+
+    // TODO: めんどくさいので波紋まわりができるまではこれはコメントアウトしておく
+    // setIsInitialView(true)
+  }
+
   // 初回表示
   const initialView = () => {
     return (
-      <div className="App" onClick={() => console.log("click!!!!")}>
-        <h1>DELPHINIOS - Solar System Simulator</h1>
+      <div className="App" onClick={(e) => setAppView(e)}>
+        <h1 className='title'>DELPHINIOS - Solar System Simulator</h1>
         <p className='guide'>Click here.</p>
       </div>
     )
   }
 
-  return initialView()
+  // メイン画面
+  const appView = () => {
+    return (
+      <div className='App'>
+        <p>AppView</p>
+      </div>
+    )
+  }
+
+  const view = () => {
+    if (!isInitialView) {
+      return initialView()
+    }
+
+    return appView()
+  }
+
+  return (
+    view()
+  )
 }
 
 export default App
