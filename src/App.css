@@ -5,6 +5,7 @@
   text-align: center;
 }
 
-.card {
-  padding: 2em;
+.guide {
+  font-weight: lighter;
+  font-size: 34px;
 }
