@@ -15,7 +15,7 @@
 }
 
 .title {
-  pointer-events: none;
+  cursor: default;
 }
 
 .guide {
