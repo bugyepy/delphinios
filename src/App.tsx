@@ -13,10 +13,19 @@ function App() {
 
   // TODO: initialViewはStoreで管理して、SessionStorageか何かに保存しておきたい。初回以降は見なくてもいいように
   const [isInitialView, setIsInitialView] = useState(false);
-
-  // TODO: クリックした位置に小さめの波紋を出してポワワ〜ンとさせながら、appViewを表示する関数
+  
+  // TODO: クリックした位置に小さめの波紋を出してポワワ〜ンとさせながら、appViewを表示する関数群
+  // TODO: 全体的に関数名は要検討
   // TODO: Transition系のなんかが欲しい
-  // TODO: 関数名は要検討
+  // TODO: これは任意の座標に小さめの波紋を出す関数
+  
+  // TODO: なんか、これみたいな感じでコンポーネントで作りたい
+  // TODO: https://qiita.com/hanaitama-kaz/items/1f7feb55cb2f7ef1b035
+  const addRipple = () => {
+    return <div>Ripple</div>
+  }
+
+  // TODO: こっちは諸々の関数を呼んだあとappViewを表示する関数
   // FIXME: App要素（このコンポーネントの一番上のDivくん）の高さが最低限しかないので端っこの方のClickイベントが取れない！
   const setAppView = (event: React.MouseEvent<HTMLDivElement>) => {
     console.log(`X: ${event.clientX}, Y: ${event.clientY}`)
