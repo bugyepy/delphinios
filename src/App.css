@@ -1,0 +1,26 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@keyframes text-bound {
+  from {
+    transform: translateY(4px);
+  }
+  to {
+    transform: translateY(-4px);
+  }
+}
+
+.title {
+  cursor: default;
+}
+
+.guide {
+  font-weight: lighter;
+  font-size: 34px;
+  cursor: default;
+  animation: text-bound infinite alternate 0.3s ease-in-out;
+}
