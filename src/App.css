@@ -1,5 +1,4 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -23,4 +22,9 @@
   font-size: 34px;
   cursor: default;
   animation: text-bound infinite alternate 0.3s ease-in-out;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
 }
